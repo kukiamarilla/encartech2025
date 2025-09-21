@@ -2,6 +2,135 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Font Face Declarations */
+@font-face {
+  font-family: 'Mid Century Sans';
+  src: url('./assets/fonts/mid-century-sans/midcenturysans-thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mid Century Sans';
+  src: url('./assets/fonts/mid-century-sans/midcenturysans-thinit.otf') format('opentype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mid Century Sans';
+  src: url('./assets/fonts/mid-century-sans/midcenturysans-xlight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mid Century Sans';
+  src: url('./assets/fonts/mid-century-sans/midcenturysans-xlightit.otf') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mid Century Sans';
+  src: url('./assets/fonts/mid-century-sans/midcenturysans-light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mid Century Sans';
+  src: url('./assets/fonts/mid-century-sans/midcenturysans-lightit.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mid Century Sans';
+  src: url('./assets/fonts/mid-century-sans/midcenturysans-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mid Century Sans';
+  src: url('./assets/fonts/mid-century-sans/midcenturysans-italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mid Century Sans';
+  src: url('./assets/fonts/mid-century-sans/midcenturysans-smbold.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mid Century Sans';
+  src: url('./assets/fonts/mid-century-sans/midcenturysans-smboldit.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mid Century Sans';
+  src: url('./assets/fonts/mid-century-sans/midcenturysans-bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mid Century Sans';
+  src: url('./assets/fonts/mid-century-sans/midcenturysans-boldit.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mid Century Sans';
+  src: url('./assets/fonts/mid-century-sans/midcenturysans-xbold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mid Century Sans';
+  src: url('./assets/fonts/mid-century-sans/midcenturysans-xboldit.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mid Century Sans';
+  src: url('./assets/fonts/mid-century-sans/midcenturysans-heavy.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mid Century Sans';
+  src: url('./assets/fonts/mid-century-sans/midcenturysans-heavyit.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
@@ -42,7 +171,7 @@ All colors MUST be HSL.
     /* ENCARTECH Custom Colors */
     --encar-orange: 18 100% 60%;  /* Primary orange */
     --encar-purple: 262 83% 76%;  /* Purple accent */
-    --encar-blue: 210 100% 56%;   /* Blue accent */
+    --encar-blue: 228 87% 59%;   /* Blue accent */
     --encar-yellow: 52 100% 66%;  /* Yellow accent */
     --encar-dark: 222.2 84% 4.9%; /* Dark background */
     --encar-light-gray: 0 0% 98%; /* Light background */
@@ -166,4 +295,13 @@ All colors MUST be HSL.
   .bg-encar-yellow {
     background-color: hsl(var(--encar-yellow));
   }
+}
+
+.stats-text {
+  text-shadow: 
+    5px 10px 0 white,
+    4px 10px 0 hsla(var(--encar-blue) / 0.4),
+    6px 10px 0 hsla(var(--encar-blue) / 0.4),
+    5px 9px 0 hsla(var(--encar-blue) / 0.4),
+    5px 11px 0 hsla(var(--encar-blue) / 0.4);
 }

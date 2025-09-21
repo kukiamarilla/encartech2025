@@ -1,27 +1,190 @@
+import { useState, useEffect } from "react";
 import speaker1 from "@/assets/speaker-1.jpg";
 import speaker2 from "@/assets/speaker-2.jpg"; 
 import speaker3 from "@/assets/speaker-3.jpg";
 import speaker4 from "@/assets/speaker-4.jpg";
 
 const SpeakersSection = () => {
-  const speakers = [
+  const [currentPage, setCurrentPage] = useState(0);
+  
+  const allSpeakers = [
     {
       name: "GLORIA ORTEGA",
+      topic: "CIBERSEGURIDAD",
       image: speaker1
     },
     {
       name: "CARLOS MENDEZ", 
+      topic: "INTELIGENCIA ARTIFICIAL",
       image: speaker2
     },
     {
       name: "ANA RODRIGUEZ",
+      topic: "DESARROLLO WEB",
       image: speaker3
     },
     {
       name: "DAVID SANTOS",
+      topic: "CLOUD COMPUTING",
+      image: speaker4
+    },
+    {
+      name: "MARIA GONZALEZ",
+      topic: "BLOCKCHAIN",
+      image: speaker1
+    },
+    {
+      name: "LUIS MARTINEZ",
+      topic: "DEVOPS",
+      image: speaker2
+    },
+    {
+      name: "SOFIA LOPEZ",
+      topic: "UX/UI DESIGN",
+      image: speaker3
+    },
+    {
+      name: "MIGUEL TORRES",
+      topic: "DATA SCIENCE",
+      image: speaker4
+    },
+    {
+      name: "ELENA RUIZ",
+      topic: "MOBILE DEVELOPMENT",
+      image: speaker1
+    },
+    {
+      name: "JORGE HERRERA",
+      topic: "MACHINE LEARNING",
+      image: speaker2
+    },
+    {
+      name: "PATRICIA VEGA",
+      topic: "QUANTUM COMPUTING",
+      image: speaker3
+    },
+    {
+      name: "RICARDO MORALES",
+      topic: "ROBOTICS",
       image: speaker4
     }
   ];
+
+  const speakersPerPage = 6; // 2 rows x 3 columns
+  const totalPages = Math.ceil(allSpeakers.length / speakersPerPage);
+
+  // Create pages array for carousel
+  const pages = [];
+  for (let i = 0; i < totalPages; i++) {
+    const startIndex = i * speakersPerPage;
+    pages.push(allSpeakers.slice(startIndex, startIndex + speakersPerPage));
+  }
+
+  const nextPage = () => {
+    setCurrentPage((prev) => (prev + 1) % totalPages);
+  };
+
+  const prevPage = () => {
+    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowLeft') {
+        prevPage();
+      } else if (event.key === 'ArrowRight') {
+        nextPage();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, []);
+
+  // Enhanced Touch/Mouse Drag support
+  const [dragStart, setDragStart] = useState<number | null>(null);
+  const [dragEnd, setDragEnd] = useState<number | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [isMouseDown, setIsMouseDown] = useState(false);
+
+  const minSwipeDistance = 30; // Reduced for better responsiveness
+
+  // Touch events
+  const onTouchStart = (e: React.TouchEvent) => {
+    setDragEnd(null);
+    setDragStart(e.targetTouches[0].clientX);
+    setIsDragging(false);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setDragEnd(e.targetTouches[0].clientX);
+    if (dragStart) {
+      const distance = Math.abs(dragStart - e.targetTouches[0].clientX);
+      if (distance > 10) {
+        setIsDragging(true);
+      }
+    }
+  };
+
+  const onTouchEnd = () => {
+    handleDragEnd();
+  };
+
+  // Mouse events
+  const onMouseDown = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setDragEnd(null);
+    setDragStart(e.clientX);
+    setIsMouseDown(true);
+    setIsDragging(false);
+  };
+
+  const onMouseMove = (e: React.MouseEvent) => {
+    if (!isMouseDown) return;
+    
+    setDragEnd(e.clientX);
+    if (dragStart) {
+      const distance = Math.abs(dragStart - e.clientX);
+      if (distance > 10) {
+        setIsDragging(true);
+      }
+    }
+  };
+
+  const onMouseUp = () => {
+    if (isMouseDown) {
+      handleDragEnd();
+      setIsMouseDown(false);
+    }
+  };
+
+  const onMouseLeave = () => {
+    if (isMouseDown) {
+      setIsMouseDown(false);
+      setIsDragging(false);
+    }
+  };
+
+  // Common drag end handler
+  const handleDragEnd = () => {
+    if (!dragStart || !dragEnd) {
+      setIsDragging(false);
+      return;
+    }
+    
+    const distance = dragStart - dragEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextPage();
+    } else if (isRightSwipe) {
+      prevPage();
+    }
+    
+    setIsDragging(false);
+  };
 
   return (
     <section id="speakers" className="py-20 bg-encar-light-gray">
@@ -35,38 +198,109 @@ const SpeakersSection = () => {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-          {speakers.map((speaker, index) => (
-            <div key={index} className="group">
-              <div className="relative overflow-hidden rounded-2xl shadow-card hover:shadow-hero transition-all duration-300 group-hover:scale-105">
-                {/* Speaker Image */}
-                <div className="aspect-[3/4] overflow-hidden">
-                  <img 
-                    src={speaker.image}
-                    alt={`Speaker ${speaker.name} en ENCARTECH 2025`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
+        {/* Carousel Container */}
+        <div className="relative max-w-7xl mx-auto">
+          {/* Navigation Arrows - Hidden on mobile */}
+          <button
+            onClick={prevPage}
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-20 w-12 h-12 bg-white shadow-lg rounded-full items-center justify-center hover:bg-encar-orange hover:text-white transition-all duration-300 group"
+            aria-label="Previous page"
+          >
+            <svg className="w-6 h-6 transform group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          
+          <button
+            onClick={nextPage}
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-20 w-12 h-12 bg-white shadow-lg rounded-full items-center justify-center hover:bg-encar-orange hover:text-white transition-all duration-300 group"
+            aria-label="Next page"
+          >
+            <svg className="w-6 h-6 transform group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Carousel Viewport */}
+          <div 
+            className={`overflow-hidden py-8 cursor-grab active:cursor-grabbing ${isDragging ? 'select-none' : ''}`}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+            onMouseDown={onMouseDown}
+            onMouseMove={onMouseMove}
+            onMouseUp={onMouseUp}
+            onMouseLeave={onMouseLeave}
+          >
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentPage * 100}%)` }}
+            >
+              {pages.map((pageData, pageIndex) => (
+                <div key={pageIndex} className="w-full flex-shrink-0">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 px-16 py-4">
+                    {pageData.map((speaker, speakerIndex) => (
+                      <div key={`${pageIndex}-${speakerIndex}`} className="group relative">
+                        {/* Blue Background Frame */}
+                        <div className="absolute bg-encar-blue z-0" style={{
+                          top: '-5%',
+                          height: '110%',
+                          left: '20%',
+                          width: '75%'
+                        }}></div>
+                        
+                        <div className="relative z-10 shadow-card hover:shadow-hero transition-all duration-300 group-hover:scale-105 max-w-[240px] mx-auto">
+                          {/* Speaker Image Container */}
+                          <div className="aspect-[4/5] overflow-hidden bg-white">
+                            <img 
+                              src={speaker.image}
+                              alt={`Speaker ${speaker.name} en ENCARTECH 2025`}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                          </div>
+                          
+                          {/* Speaker Info Overlay */}
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6">
+                            <div className="text-white">
+                              <p className="text-sm font-semibold mb-1 tracking-wider opacity-90">
+                                {speaker.topic}
+                              </p>
+                              <h3 className="text-lg font-black tracking-wide leading-tight">
+                                {speaker.name}
+                              </h3>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                
-                {/* Blue Accent Bar */}
-                <div className="absolute bottom-0 left-0 right-0 h-20 bg-encar-blue"></div>
-                
-                {/* Speaker Name */}
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-white font-bold text-sm tracking-wide">
-                    {speaker.name}
-                  </h3>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
 
         {/* Navigation Dots */}
         <div className="flex justify-center mt-12 gap-3">
-          <div className="w-3 h-3 bg-encar-orange rounded-full"></div>
-          <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
-          <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentPage(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-110 ${
+                currentPage === index 
+                  ? 'bg-encar-orange' 
+                  : 'bg-gray-300 hover:bg-gray-400'
+              }`}
+              aria-label={`Go to page ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        
+        
+        {/* Mobile Swipe Hint */}
+        <div className="md:hidden text-center mt-2 text-xs text-gray-500">
+          👆 Desliza para navegar
         </div>
       </div>
     </section>

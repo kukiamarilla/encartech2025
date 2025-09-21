@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import eventImage from "@/assets/event-info-image.jpg";
+import eventImage from "@/assets/event-info-image.png";
 
 const EventInfoSection = () => {
   return (
