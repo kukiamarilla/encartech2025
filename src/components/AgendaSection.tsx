@@ -90,78 +90,160 @@ const AgendaSection = () => {
         <div className="max-w-6xl mx-auto space-y-0">
           {/* Schedule Rows */}
           {scheduleData.map((row, index) => (
-            <div key={index} className="grid grid-cols-4 border-t border-gray-200">
-              {/* Time */}
-              <div className="p-6 bg-gray-50 border-r border-gray-200 flex items-center">
-                <span className="font-semibold text-sm text-foreground transform -rotate-90 whitespace-nowrap">
-                  {row.time}
-                </span>
+            <div key={index} className="border-t border-gray-200">
+              {/* Mobile Layout */}
+              <div className="lg:hidden">
+                <div className="p-4 bg-gray-50 border-b border-gray-200">
+                  <span className="font-semibold text-sm text-foreground">
+                    {row.time}
+                  </span>
+                </div>
+                <div className="space-y-4 p-4">
+                  <div className="border-l-4 border-encar-orange pl-4">
+                    <h4 className="font-bold text-foreground mb-2">{row.charla.title}</h4>
+                    <p className="text-sm text-muted-foreground">{row.charla.description}</p>
+                  </div>
+                  <div className="border-l-4 border-encar-blue pl-4">
+                    <h4 className="font-bold text-foreground mb-2">{row.taller1.title}</h4>
+                    <p className="text-sm text-muted-foreground">{row.taller1.description}</p>
+                  </div>
+                  <div className="border-l-4 border-encar-purple pl-4">
+                    <h4 className="font-bold text-foreground mb-2">{row.taller2.title}</h4>
+                    <p className="text-sm text-muted-foreground">{row.taller2.description}</p>
+                  </div>
+                </div>
               </div>
 
-              {/* Charla */}
-              <div className="p-6 border-r border-gray-200">
-                <h4 className="font-bold text-foreground mb-2">{row.charla.title}</h4>
-                <p className="text-sm text-muted-foreground">{row.charla.description}</p>
-              </div>
+              {/* Desktop Layout */}
+              <div className="hidden lg:grid lg:grid-cols-4">
+                {/* Time */}
+                <div className="p-6 bg-gray-50 border-r border-gray-200 flex items-center">
+                  <span className="font-semibold text-sm text-foreground transform -rotate-90 whitespace-nowrap">
+                    {row.time}
+                  </span>
+                </div>
 
-              {/* Taller 1 */}
-              <div className="p-6 border-r border-gray-200">
-                <h4 className="font-bold text-foreground mb-2">{row.taller1.title}</h4>
-                <p className="text-sm text-muted-foreground">{row.taller1.description}</p>
-              </div>
+                {/* Charla */}
+                <div className="p-6 border-r border-gray-200">
+                  <h4 className="font-bold text-foreground mb-2">{row.charla.title}</h4>
+                  <p className="text-sm text-muted-foreground">{row.charla.description}</p>
+                </div>
 
-              {/* Taller 2 */}
-              <div className="p-6">
-                <h4 className="font-bold text-foreground mb-2">{row.taller2.title}</h4>
-                <p className="text-sm text-muted-foreground">{row.taller2.description}</p>
+                {/* Taller 1 */}
+                <div className="p-6 border-r border-gray-200">
+                  <h4 className="font-bold text-foreground mb-2">{row.taller1.title}</h4>
+                  <p className="text-sm text-muted-foreground">{row.taller1.description}</p>
+                </div>
+
+                {/* Taller 2 */}
+                <div className="p-6">
+                  <h4 className="font-bold text-foreground mb-2">{row.taller2.title}</h4>
+                  <p className="text-sm text-muted-foreground">{row.taller2.description}</p>
+                </div>
               </div>
             </div>
           ))}
 
           {/* Break Row */}
-          <div className="grid grid-cols-4 border-t border-gray-200">
-            <div className="p-6 bg-gray-50 border-r border-gray-200 flex items-center">
-              <span className="font-semibold text-sm text-foreground transform -rotate-90 whitespace-nowrap">
-                {breakTime.time}
-              </span>
+          <div className="border-t border-gray-200">
+            {/* Mobile Layout */}
+            <div className="lg:hidden">
+              <div className="p-4 bg-gray-50 border-b border-gray-200">
+                <span className="font-semibold text-sm text-foreground">
+                  {breakTime.time}
+                </span>
+              </div>
+              <div className="p-6 bg-gray-200 text-center">
+                <span className="font-bold text-lg text-foreground">{breakTime.title}</span>
+              </div>
             </div>
-            <div className="col-span-3 p-6 bg-gray-200 flex items-center justify-center">
-              <span className="font-bold text-lg text-foreground">{breakTime.title}</span>
+
+            {/* Desktop Layout */}
+            <div className="hidden lg:grid lg:grid-cols-4">
+              <div className="p-6 bg-gray-50 border-r border-gray-200 flex items-center">
+                <span className="font-semibold text-sm text-foreground transform -rotate-90 whitespace-nowrap">
+                  {breakTime.time}
+                </span>
+              </div>
+              <div className="col-span-3 p-6 bg-gray-200 flex items-center justify-center">
+                <span className="font-bold text-lg text-foreground">{breakTime.title}</span>
+              </div>
             </div>
           </div>
 
           {/* Afternoon Schedule */}
           {afternoonData.map((row, index) => (
-            <div key={index} className="grid grid-cols-4 border-t border-gray-200">
-              <div className="p-6 bg-gray-50 border-r border-gray-200 flex items-center">
-                <span className="font-semibold text-sm text-foreground transform -rotate-90 whitespace-nowrap">
-                  {row.time}
-                </span>
+            <div key={index} className="border-t border-gray-200">
+              {/* Mobile Layout */}
+              <div className="lg:hidden">
+                <div className="p-4 bg-gray-50 border-b border-gray-200">
+                  <span className="font-semibold text-sm text-foreground">
+                    {row.time}
+                  </span>
+                </div>
+                <div className="space-y-4 p-4">
+                  <div className="border-l-4 border-encar-orange pl-4">
+                    <h4 className="font-bold text-foreground mb-2">{row.charla.title}</h4>
+                    <p className="text-sm text-muted-foreground">{row.charla.description}</p>
+                  </div>
+                  <div className="border-l-4 border-encar-blue pl-4">
+                    <h4 className="font-bold text-foreground mb-2">{row.taller1.title}</h4>
+                    <p className="text-sm text-muted-foreground">{row.taller1.description}</p>
+                  </div>
+                  <div className="border-l-4 border-encar-purple pl-4">
+                    <h4 className="font-bold text-foreground mb-2">{row.taller2.title}</h4>
+                    <p className="text-sm text-muted-foreground">{row.taller2.description}</p>
+                  </div>
+                </div>
               </div>
-              <div className="p-6 border-r border-gray-200">
-                <h4 className="font-bold text-foreground mb-2">{row.charla.title}</h4>
-                <p className="text-sm text-muted-foreground">{row.charla.description}</p>
-              </div>
-              <div className="p-6 border-r border-gray-200">
-                <h4 className="font-bold text-foreground mb-2">{row.taller1.title}</h4>
-                <p className="text-sm text-muted-foreground">{row.taller1.description}</p>
-              </div>
-              <div className="p-6">
-                <h4 className="font-bold text-foreground mb-2">{row.taller2.title}</h4>
-                <p className="text-sm text-muted-foreground">{row.taller2.description}</p>
+
+              {/* Desktop Layout */}
+              <div className="hidden lg:grid lg:grid-cols-4">
+                <div className="p-6 bg-gray-50 border-r border-gray-200 flex items-center">
+                  <span className="font-semibold text-sm text-foreground transform -rotate-90 whitespace-nowrap">
+                    {row.time}
+                  </span>
+                </div>
+                <div className="p-6 border-r border-gray-200">
+                  <h4 className="font-bold text-foreground mb-2">{row.charla.title}</h4>
+                  <p className="text-sm text-muted-foreground">{row.charla.description}</p>
+                </div>
+                <div className="p-6 border-r border-gray-200">
+                  <h4 className="font-bold text-foreground mb-2">{row.taller1.title}</h4>
+                  <p className="text-sm text-muted-foreground">{row.taller1.description}</p>
+                </div>
+                <div className="p-6">
+                  <h4 className="font-bold text-foreground mb-2">{row.taller2.title}</h4>
+                  <p className="text-sm text-muted-foreground">{row.taller2.description}</p>
+                </div>
               </div>
             </div>
           ))}
 
           {/* After Party Row */}
-          <div className="grid grid-cols-4 border-t border-gray-200">
-            <div className="p-6 bg-gray-50 border-r border-gray-200 flex items-center">
-              <span className="font-semibold text-sm text-foreground transform -rotate-90 whitespace-nowrap">
-                {afterParty.time}
-              </span>
+          <div className="border-t border-gray-200">
+            {/* Mobile Layout */}
+            <div className="lg:hidden">
+              <div className="p-4 bg-gray-50 border-b border-gray-200">
+                <span className="font-semibold text-sm text-foreground">
+                  {afterParty.time}
+                </span>
+              </div>
+              <div className="p-6 bg-gray-200 text-center">
+                <span className="font-bold text-lg text-foreground">{afterParty.title}</span>
+              </div>
             </div>
-            <div className="col-span-3 p-6 bg-gray-200 flex items-center justify-center">
-              <span className="font-bold text-lg text-foreground">{afterParty.title}</span>
+
+            {/* Desktop Layout */}
+            <div className="hidden lg:grid lg:grid-cols-4">
+              <div className="p-6 bg-gray-50 border-r border-gray-200 flex items-center">
+                <span className="font-semibold text-sm text-foreground transform -rotate-90 whitespace-nowrap">
+                  {afterParty.time}
+                </span>
+              </div>
+              <div className="col-span-3 p-6 bg-gray-200 flex items-center justify-center">
+                <span className="font-bold text-lg text-foreground">{afterParty.title}</span>
+              </div>
             </div>
           </div>
         </div>
