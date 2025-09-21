@@ -161,7 +161,7 @@ const AgendaSection = () => {
             {/* Desktop Layout */}
             <div className="hidden lg:grid lg:grid-cols-4">
               <div className="p-6 bg-gray-50 border-r border-gray-200 flex items-center">
-                <span className="font-semibold text-sm text-foreground transform -rotate-90 whitespace-nowrap">
+                <span className="font-semibold text-sm text-foreground whitespace-nowrap">
                   {breakTime.time}
                 </span>
               </div>
@@ -237,7 +237,7 @@ const AgendaSection = () => {
             {/* Desktop Layout */}
             <div className="hidden lg:grid lg:grid-cols-4">
               <div className="p-6 bg-gray-50 border-r border-gray-200 flex items-center">
-                <span className="font-semibold text-sm text-foreground transform -rotate-90 whitespace-nowrap">
+                <span className="font-semibold text-sm text-foreground whitespace-nowrap">
                   {afterParty.time}
                 </span>
               </div>
