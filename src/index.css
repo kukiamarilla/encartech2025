@@ -17,41 +17,52 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* ENCARTECH Brand Colors */
+    --primary: 18 100% 60%;  /* Orange #FF6B35 */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 222.2 84% 4.9%;  /* Dark */
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 262 83% 76%;  /* Purple/Violet #B794F6 */
+    --accent-foreground: 222.2 84% 4.9%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 18 100% 60%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
+    /* ENCARTECH Custom Colors */
+    --encar-orange: 18 100% 60%;  /* Primary orange */
+    --encar-purple: 262 83% 76%;  /* Purple accent */
+    --encar-blue: 210 100% 56%;   /* Blue accent */
+    --encar-yellow: 52 100% 66%;  /* Yellow accent */
+    --encar-dark: 222.2 84% 4.9%; /* Dark background */
+    --encar-light-gray: 0 0% 98%; /* Light background */
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--encar-purple)) 0%, hsl(var(--encar-blue)) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(var(--encar-yellow)) 0%, hsl(var(--encar-orange)) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(var(--encar-orange)) 0%, hsl(var(--encar-yellow)) 100%);
+
+    /* Shadows */
+    --shadow-hero: 0 25px 50px -12px hsl(var(--encar-purple) / 0.25);
+    --shadow-card: 0 10px 25px -3px hsl(var(--encar-orange) / 0.1), 0 4px 6px -2px hsl(var(--encar-orange) / 0.05);
+    
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -65,8 +76,8 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 18 100% 60%;  /* Keep orange primary in dark mode */
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -74,7 +85,7 @@ All colors MUST be HSL.
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 262 83% 76%;  /* Keep purple accent */
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -82,7 +93,7 @@ All colors MUST be HSL.
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 18 100% 60%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +111,59 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* Custom utility classes */
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .shadow-hero {
+    box-shadow: var(--shadow-hero);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .encar-orange {
+    color: hsl(var(--encar-orange));
+  }
+  
+  .bg-encar-orange {
+    background-color: hsl(var(--encar-orange));
+  }
+  
+  .encar-purple {
+    color: hsl(var(--encar-purple));
+  }
+  
+  .bg-encar-purple {
+    background-color: hsl(var(--encar-purple));
+  }
+  
+  .encar-blue {
+    color: hsl(var(--encar-blue));
+  }
+  
+  .bg-encar-blue {
+    background-color: hsl(var(--encar-blue));
+  }
+  
+  .encar-yellow {
+    color: hsl(var(--encar-yellow));
+  }
+  
+  .bg-encar-yellow {
+    background-color: hsl(var(--encar-yellow));
   }
 }

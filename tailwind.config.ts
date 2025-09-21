@@ -57,6 +57,27 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // ENCARTECH Brand Colors
+        encar: {
+          orange: "hsl(var(--encar-orange))",
+          purple: "hsl(var(--encar-purple))",
+          blue: "hsl(var(--encar-blue))",
+          yellow: "hsl(var(--encar-yellow))",
+          dark: "hsl(var(--encar-dark))",
+          "light-gray": "hsl(var(--encar-light-gray))",
+        },
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      backgroundImage: {
+        'gradient-hero': 'var(--gradient-hero)',
+        'gradient-accent': 'var(--gradient-accent)',
+        'gradient-card': 'var(--gradient-card)',
+      },
+      boxShadow: {
+        'hero': 'var(--shadow-hero)',
+        'card': 'var(--shadow-card)',
       },
       borderRadius: {
         lg: "var(--radius)",
