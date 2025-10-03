@@ -40,9 +40,9 @@ const EventInfoSection = () => {
                 <br />
                 EVENTO
               </h2>
-              
+              El evento tecnológico más grande del sur del país. 🎉 En su cuarta edición, reunirá a más de 400 participantes: estudiantes 👩‍🎓, profesionales 👨‍💻, docentes 📚, emprendedores 🚀, empresas 🏢 y entusiastas de la tecnología 🤖, creando un espacio único de aprendizaje, networking e inspiración.
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisque facilibus est sapien vitae pellentesque enim aliquam consectetur adipisicing elit. Quisque facilibus est sapien vitae pellentesque enim aliquam.
+                
               </p>
             </div>
             
