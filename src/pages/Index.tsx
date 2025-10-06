@@ -4,6 +4,7 @@ import StatsSection from "@/components/StatsSection";
 import EventInfoSection from "@/components/EventInfoSection";
 import AgendaSection from "@/components/AgendaSection";
 import SpeakersSection from "@/components/SpeakersSection";
+import { SponsorsSection } from "@/components/SponsorsSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -15,6 +16,7 @@ const Index = () => {
       <EventInfoSection />
       <AgendaSection />
       <SpeakersSection />
+      <SponsorsSection />
       <Footer />
     </main>
   );

@@ -1,73 +1,123 @@
 import { useState, useEffect } from "react";
-import speaker1 from "@/assets/speaker-1.jpg";
-import speaker2 from "@/assets/speaker-2.jpg"; 
-import speaker3 from "@/assets/speaker-3.jpg";
-import speaker4 from "@/assets/speaker-4.jpg";
+import speaker1 from "../assets/speaker-1.jpg";
+import speaker2 from "../assets/speaker-2.jpg";
+import speaker3 from "../assets/speaker-3.jpg";
+import speaker4 from "../assets/speaker-4.jpg";
+import speaker5 from "../assets/speaker-5.jpg";
+import speaker6 from "../assets/speaker-6.jpg";
+import speaker7 from "../assets/speaker-7.jpg";
+import speaker8 from "../assets/speaker-8.jpg";
+import speaker9 from "../assets/speaker-9.jpg";
+import speaker10 from "../assets/speaker-10.jpg";
+import speaker11 from "../assets/speaker-11.jpg";
+import speaker12 from "../assets/speaker-12.jpg";
+import speaker13 from "../assets/speaker-13.jpg";
+import speaker14 from "../assets/speaker-14.jpg";
+import speaker15 from "../assets/speaker-15.jpg";
+import speaker16 from "../assets/speaker-16.jpg";
+import speaker17 from "../assets/speaker-17.jpg";
+import speaker18 from "../assets/speaker-18.jpg";
+
 
 const SpeakersSection = () => {
   const [currentPage, setCurrentPage] = useState(0);
   
   const allSpeakers = [
+    
+    
     {
-      name: "GLORIA ORTEGA",
-      topic: "CIBERSEGURIDAD",
-      image: speaker1
+      name: "Juan Manuel Alonso",
+      topic: "+25 años en la industria Tech, Mentor de Startups - Reva",
+      image: speaker5
     },
     {
-      name: "CARLOS MENDEZ", 
-      topic: "INTELIGENCIA ARTIFICIAL",
-      image: speaker2
+      name: "Luciano Boggiano",
+      topic: "Investment Analyst - IThinkVC",
+      image: speaker8
     },
     {
-      name: "ANA RODRIGUEZ",
-      topic: "DESARROLLO WEB",
-      image: speaker3
-    },
-    {
-      name: "DAVID SANTOS",
-      topic: "CLOUD COMPUTING",
+      name: "Hector Aguirre", 
+      topic: "+35 años como Especialista en Ciberseguridad - LNX NETWORK",
       image: speaker4
     },
     {
-      name: "MARIA GONZALEZ",
-      topic: "BLOCKCHAIN",
+      name: "Marcelo Elizeche Lando",
+      topic: "Senior Software Engineer - Authentik Security",
+      image: speaker16
+    },
+    {
+      name: "Astrid Sanz",
+      topic: "Directora de Innovando Paraguay - MITIC",
+      image: speaker7
+    },
+    {
+      name: "Rocio Vazquez",
+      topic: "Especialista en Neuromarketing e Inteligencia Artificial - Publia",
+      image: speaker11
+    },
+    {
+      name: "Fernanda Carles",
+      topic: "Especialista en ciencias de datos, MLOps, Machine Learning - Girls Code",
+      image: speaker6
+    },
+    {
+      name: "Abel Ledezma",
+      topic: "Especialista en Sistemas Escalables y Growth Tech Mindset - Mas Money",
+      image: speaker13
+    },
+    
+    {
+      name: "Linda Riquelme",
+      topic: "Coordinadora Académica - Programando+",
       image: speaker1
     },
+     
+    
+    
     {
-      name: "LUIS MARTINEZ",
-      topic: "DEVOPS",
-      image: speaker2
+      name: "Kuki Amarilla",
+      topic: "Software Developer, Project Manager, CTO y CEO de WebParaguay - Plub",
+      image: speaker10
+    },
+     {
+      name: "Giselle Ramirez",
+      topic: "MSc en Innovación, creatividad y Liderezgo, - Fintech, Más Money",
+      image: speaker17
     },
     {
-      name: "SOFIA LOPEZ",
-      topic: "UX/UI DESIGN",
+      name: "Lucas Fronciani",
+      topic: "Desarrollador Web y Mobil - EIEN",
+      image: speaker12
+    },
+    
+    {
+      name: "Alejandro Nuñez",
+      topic: "Master en ciencias de Ingenieria - CEO Smartsoil",
+      image: speaker14
+    },
+    {
+      name: "Analia Britez",
+      topic: "Head of Learning Resources - Penguin Academy",
+      image: speaker2
+    },
+     {
+      name: "Katya Vazquez",
+      topic: " Desarrolladora de Software - ITTI",
       image: speaker3
     },
     {
-      name: "MIGUEL TORRES",
-      topic: "DATA SCIENCE",
-      image: speaker4
+      name: "Milena Isasi",
+      topic: "Desarrolladora Web, Mkt Digital  - Founder Agendapp",
+      image: speaker15
     },
+    
+   
     {
-      name: "ELENA RUIZ",
-      topic: "MOBILE DEVELOPMENT",
-      image: speaker1
+      name: "Alberto Samaniego",
+      topic: "Design Manager & Product Strategist -  55 Design",
+     
     },
-    {
-      name: "JORGE HERRERA",
-      topic: "MACHINE LEARNING",
-      image: speaker2
-    },
-    {
-      name: "PATRICIA VEGA",
-      topic: "QUANTUM COMPUTING",
-      image: speaker3
-    },
-    {
-      name: "RICARDO MORALES",
-      topic: "ROBOTICS",
-      image: speaker4
-    }
+    
   ];
 
   const speakersPerPage = 6; // 2 rows x 3 columns
