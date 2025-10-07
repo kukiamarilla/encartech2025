@@ -17,29 +17,29 @@ import speaker15 from "../assets/speaker-15.jpg";
 import speaker16 from "../assets/speaker-16.jpg";
 import speaker17 from "../assets/speaker-17.jpg";
 import speaker18 from "../assets/speaker-18.jpg";
-
+import speaker19 from "../assets/speaker-19.jpg";
+import speaker20 from "../assets/speaker-20.jpg";
 
 const SpeakersSection = () => {
   const [currentPage, setCurrentPage] = useState(0);
   
   const allSpeakers = [
-    
-    
-    {
-      name: "Juan Manuel Alonso",
-      topic: "+25 años en la industria Tech, Mentor de Startups - Reva",
-      image: speaker5
-    },
     {
       name: "Luciano Boggiano",
       topic: "Investment Analyst - IThinkVC",
       image: speaker8
     },
     {
-      name: "Hector Aguirre", 
-      topic: "+35 años como Especialista en Ciberseguridad - LNX NETWORK",
-      image: speaker4
+      name: "Koki Dure", 
+      topic: "Senior Software Engineer - Redfin",
+      image: speaker18
     },
+    {
+      name: "Sergio Pulido", 
+      topic: "Gerente de Inteligencia Artificial y Transformación - ITTI",
+      image: speaker20
+    },
+    
     {
       name: "Marcelo Elizeche Lando",
       topic: "Senior Software Engineer - Authentik Security",
@@ -50,14 +50,24 @@ const SpeakersSection = () => {
       topic: "Directora de Innovando Paraguay - MITIC",
       image: speaker7
     },
+     {
+      name: "Juan Manuel Alonso",
+      topic: "+25 años en la industria Tech, Mentor de Startups - Reva",
+      image: speaker5
+    },
     {
       name: "Rocio Vazquez",
       topic: "Especialista en Neuromarketing e Inteligencia Artificial - Publia",
       image: speaker11
     },
     {
-      name: "Fernanda Carles",
-      topic: "Especialista en ciencias de datos, MLOps, Machine Learning - Girls Code",
+      name: "Hector Aguirre", 
+      topic: "+35 años como Especialista en Ciberseguridad - LNX NETWORK",
+      image: speaker4
+    },
+    {
+      name: "Analia Arguello",
+      topic: "Profesional en Diseño, Tecnología e Innovación  - Garnet Software Solutions",
       image: speaker6
     },
     {
@@ -65,7 +75,11 @@ const SpeakersSection = () => {
       topic: "Especialista en Sistemas Escalables y Growth Tech Mindset - Mas Money",
       image: speaker13
     },
-    
+     {
+      name: "Alberto Samaniego",
+      topic: "Design Manager & Product Strategist -  55 Design",
+     image: speaker19
+    },
     {
       name: "Linda Riquelme",
       topic: "Coordinadora Académica - Programando+",
@@ -109,13 +123,6 @@ const SpeakersSection = () => {
       name: "Milena Isasi",
       topic: "Desarrolladora Web, Mkt Digital  - Founder Agendapp",
       image: speaker15
-    },
-    
-   
-    {
-      name: "Alberto Samaniego",
-      topic: "Design Manager & Product Strategist -  55 Design",
-     
     },
     
   ];

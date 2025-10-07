@@ -1,17 +1,43 @@
-import React from "react";
-
 const AgendaSection = () => {
   const scheduleData = [
     {
+      time: "8:00 AM",
+      charla: {
+        title: "Acreditaciones",
+        description:
+          "Acreditaciones de los participantes",
+      },
+      taller1: {
+        title:
+          "Acreditaciones",
+        description:
+          "Acreditaciones de los participantes",
+      },
+    },
+    {
+      time: "8:30 AM",
+      charla: {
+        title: "Key Note",
+        description:
+          "Apertura del evento",
+      },
+      taller1: {
+        title:
+          "Palabras de Bienvenida",
+        description:
+          "Apertura del Evento",
+      },
+    },
+    {
       time: "9:00 AM - 10 AM",
       charla: {
-        title: "PANEL: Cómo los Bootcamps Impulsan el Talento Digital",
+        title: "PANEL: Cómo los Bootcamps Impulsan el Talento Digital. Penguin Academy - Programando+ - ProgramandoPy",
         description:
           "Este panel se sumerge en la Revolución del Talento, explorando cómo el nuevo estándar de formación intensiva está redefiniendo las carreras y cerrando la brecha de habilidades en Latam. Analizaremos la eficacia, el rigor y las proyecciones futuras de un modelo educativo que construye el profesional digital del mañana, hoy.",
       },
       taller1: {
         title:
-          "TALLER: Hacker's Playground: Laboratorio de Ataques y Contramedidas",
+          "TALLER: Hacker's Playground: Laboratorio de Ataques y Contramedidas - Hector Aguirre",
         description:
           "Laboratorio de Ataques y Contramedidas. Vea el hacking en vivo. Aprenda la mentalidad del atacante para blindar y defender su infraestructura.",
       },
@@ -20,20 +46,36 @@ const AgendaSection = () => {
       time: "10:00 AM - 11:00 AM",
       charla: {
         title:
-          "CHARLA: Evolución del LowCode: del prototipo rápido al VibeCoding con IA",
+          "CHARLA: Evolución del LowCode: del prototipo rápido al VibeCoding con IA - Juan Manuel Alonso",
         description:
           "Automatice el Desarrollo: LowCode y desarrollo con IA son la clave para acelerar sus prototipos, reducir riesgos y democratizar la creación de software",
       },
       taller1: {
         title:
-          "CHARLA: IA para Predicción en Tiempo Real: Lecciones del Proyecto Respira",
+          "CHARLA: Innovar con propósito: diseñando soluciones tecnológicas para problemas reales - Analia Arguello",
         description:
-          "Una inmersión en la aplicación práctica de la Inteligencia Artificial para resolver problemas de impacto social en Paraguay. Fernanda Carlés, líder de Proyecto Respira, compartirá cómo su equipo utilizó algoritmos de machine learning y datos abiertos para crear una plataforma que predice la calidad del aire. Es un caso de estudio sobre innovación open source, gestión de datos complejos y la capacidad de la IA para generar alertas accionables que protegen la salud pública.",
+          "En esta charla descubriremos cómo la tecnología puede transformar ideas en soluciones que mejoran la vida de las personas...",
       },
     },
   ];
 
+  const morningBreak = { time: "11:00 a 13:00", title: "Break" };
+
   const afternoonData = [
+    {
+      time: "13:00 APM",
+      charla: {
+        title: "Acreditaciones",
+        description:
+          "Acreditaciones de los participantes",
+      },
+      taller1: {
+        title:
+          "Acreditaciones",
+        description:
+          "Acreditaciones de los participantes",
+      },
+    },
     {
       time: "13:30 PM - 14:20 PM",
       charla: {
@@ -42,9 +84,8 @@ const AgendaSection = () => {
           "Una oportunidad para conocer cómo identificar oportunidades, adaptarse a diferentes mercados y generar impacto en América Latina desde una perspectiva práctica y real.",
       },
       taller1: {
-        title: "CHARLA: Crowdllama: LLMs y P2P",
-        description:
-          "Descubrí cómo los modelos de lenguaje (LLMs) y las redes P2P se unen para crear apps innovadoras, descentralizadas y colaborativas. En 'Crowdllama: LLMs y P2P' vas a conocer casos reales y oportunidades para llevar tus proyectos al próximo nivel.",
+        title: "OWASP para la era de la Inteligencia Artificial: nuevas amenazas, nuevos desafíos - Koki Dure",
+        description: "Esta charla explora cómo la evolución de la Inteligencia Artificial está generando nuevas vulnerabilidades y desafíos en seguridad digital. Se analizarán riesgos emergentes, buenas prácticas para mitigarlos y cómo la comunidad OWASP adapta sus estándares y frameworks para proteger sistemas inteligentes en entornos actuales.",
       },
     },
     {
@@ -52,57 +93,60 @@ const AgendaSection = () => {
       charla: {
         title: "PANEL: Conversando sobre IA en Paraguay: Ética, leyes e impacto",
         description:
-          "Reúne a expertos para analizar cómo la inteligencia artificial está transformando la sociedad y los negocios en Paraguay. Se discutirán aspectos éticos, marcos legales y el impacto real de la IA, buscando generar un diálogo sobre su uso responsable y beneficioso para la región.",
+          "Reúne a expertos para analizar cómo la inteligencia artificial está transformando la sociedad y los negocios en Paraguay...",
       },
       taller1: {
         title:
-          "TALLER: Inteligencia Artificial: El presente de la productividad en tu negocio",
+          "TALLER: Inteligencia Artificial: El presente de la productividad en tu negocio - Rocío Janette Vázquez González ",
         description:
-          "Muestra cómo la IA puede potenciar la eficiencia y el rendimiento en las empresas, explorando herramientas, casos prácticos y estrategias para aprovechar al máximo su impacto en la productividad.",
+          "Muestra cómo la IA puede potenciar la eficiencia y el rendimiento en las empresas...",
       },
     },
   ];
 
-  const breakTime = {
-    time: "15:20 PM - 15:50 PM",
-    title: "BREAK",
-  };
+  const coffeeBreak = { time: "15:20 a 15:50", title: "Coffee Break" };
 
-  // 👇 Aquí agregás la info nueva que quieras mostrar después del break
   const afternoonExtraData = [
     {
       time: "15:50 PM - 16:50 PM",
       charla: {
-        title: "Panel: Startup Stories: El Lado Humano de la Innovación Paraguaya: ",
-        description: "Reúne a emprendedores locales y nacionales para compartir sus historias, aprendizajes y desafíos detrás de la creación de startups en Paraguay. Una mirada cercana al esfuerzo, la creatividad y la pasión que impulsan la innovación en el país.",
+        title:
+          "Panel: Startup Stories: El Lado Humano de la Innovación Paraguaya",
+        description:
+          "Reúne a emprendedores locales y nacionales para compartir sus historias, aprendizajes y desafíos detrás de la creación de startups en Paraguay...",
       },
       taller1: {
-        title: "Charla: Ciberseguridad 101: Principios, Modelado de Amenazas y Buenas Prácticas",
-        description: "Es una introducción práctica al mundo de la seguridad digital. Los participantes aprenderán conceptos clave, cómo identificar y modelar amenazas, y estrategias efectivas para proteger sistemas, datos y operaciones en entornos digitales.",
+        title: "Charla: Ciberseguridad 101: Principios, Modelado de Amenazas y Buenas Prácticas -  Marcelo Elizeche Lando",
+        description:
+          "Es una introducción práctica al mundo de la seguridad digital...",
       },
     },
     {
       time: "16:50 PM - 17:30 PM",
       charla: {
-        title: "Panel de la empresa ITTI ",
-        description: "Una de las empresas más innovadoras y en auge del sector tecnológico en Paraguay, compartirá su visión sobre el futuro de la tecnología, sus proyectos más destacados y cómo impulsa la innovación en el país. Una oportunidad para conocer de primera mano las estrategias y aprendizajes que los posicionan como referentes en el ecosistema tech local",
+        title: "Inteligencia artificial y transformación tecnológica - Sergio Pulido",
+        description:
+          "Esta charla aborda cómo la Inteligencia Artificial está revolucionando industrias, procesos y servicios, impulsando la transformación tecnológica en empresas y organizaciones. Se explorarán casos de uso, tendencias actuales y cómo las tecnologías inteligentes pueden optimizar operaciones, potenciar la innovación y generar ventajas competitivas.",
       },
       taller1: {
-        title: "Taller: De la idea a la validación de negocio",
-        description: "Es un taller práctico diseñado para guiar a emprendedores y profesionales en el proceso de transformar una idea en un negocio viable. Se explorarán metodologías de validación, herramientas para testear el mercado y estrategias para asegurar que tu proyecto tenga un impacto real y sostenible.",
+        title: "Taller: De la idea a la validación de negocio - Giselle Ramirez",
+        description:
+          "Es un taller práctico diseñado para guiar a emprendedores y profesionales en el proceso de transformar una idea en un negocio viable...",
       },
     },
     {
       time: "17:50 PM - 18:50 PM",
       charla: {
         title: "Panel La Estrategia del Capital: Claves para Escalar tu Startup",
-        description: "Es un panel donde expertos compartirán estrategias para obtener financiamiento, gestionar recursos y tomar decisiones clave que permitan escalar una startup. Una oportunidad para aprender cómo estructurar el crecimiento y potenciar el impacto de tu emprendimiento.",
+        description:
+          "Es un panel donde expertos compartirán estrategias para obtener financiamiento, gestionar recursos y tomar decisiones clave...",
       },
       taller1: {
-        title: "Charla Diseñar para Adoptar: Usabilidad y Crecimiento en Productos Digitales",
-        description: "es una charla que explora cómo el diseño centrado en el usuario impulsa la adopción y el crecimiento de productos digitales. Se abordarán principios de usabilidad, estrategias de experiencia de usuario y tácticas para maximizar la retención y satisfacción de los clientes.",
+        title: "Charla Diseñar para Adoptar: Usabilidad y Crecimiento en Productos Digitales - Alberto Samaniego",
+        description:
+          "Es una charla que explora cómo el diseño centrado en el usuario impulsa la adopción y el crecimiento de productos digitales...",
+      },
     },
-    }
   ];
 
   const afterParty = {
@@ -145,6 +189,27 @@ const AgendaSection = () => {
     </div>
   );
 
+  const renderBreak = (breakObj: { time: string; title: string }) => (
+    <div className="border-t border-gray-200">
+      <div className="lg:hidden">
+        <div className="p-4 bg-gray-50 border-b border-gray-200">
+          <span className="font-semibold text-sm text-foreground">{breakObj.time}</span>
+        </div>
+        <div className="p-6 bg-gray-200 text-center">
+          <span className="font-bold text-lg text-foreground">{breakObj.title}</span>
+        </div>
+      </div>
+      <div className="hidden lg:grid lg:grid-cols-4">
+        <div className="p-6 bg-gray-50 border-r border-gray-200 flex items-center">
+          <span className="font-semibold text-sm text-foreground whitespace-nowrap">{breakObj.time}</span>
+        </div>
+        <div className="col-span-3 p-6 bg-gray-200 flex items-center justify-center">
+          <span className="font-bold text-lg text-foreground">{breakObj.title}</span>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <section id="agenda" className="py-20 bg-white">
       <div className="container mx-auto px-6">
@@ -155,53 +220,22 @@ const AgendaSection = () => {
 
         <div className="max-w-6xl mx-auto space-y-0">
           {/* Morning Schedule */}
-          {scheduleData.map((row, index) => renderRow(row))}
+          {scheduleData.map((row) => renderRow(row))}
 
-          {/* Afternoon Schedule (antes del break) */}
-          {afternoonData.map((row, index) => renderRow(row))}
+          {/* Morning Break */}
+          {renderBreak(morningBreak)}
 
-          {/* Break */}
-          <div className="border-t border-gray-200">
-            <div className="lg:hidden">
-              <div className="p-4 bg-gray-50 border-b border-gray-200">
-                <span className="font-semibold text-sm text-foreground">{breakTime.time}</span>
-              </div>
-              <div className="p-6 bg-gray-200 text-center">
-                <span className="font-bold text-lg text-foreground">{breakTime.title}</span>
-              </div>
-            </div>
-            <div className="hidden lg:grid lg:grid-cols-4">
-              <div className="p-6 bg-gray-50 border-r border-gray-200 flex items-center">
-                <span className="font-semibold text-sm text-foreground whitespace-nowrap">{breakTime.time}</span>
-              </div>
-              <div className="col-span-3 p-6 bg-gray-200 flex items-center justify-center">
-                <span className="font-bold text-lg text-foreground">{breakTime.title}</span>
-              </div>
-            </div>
-          </div>
+          {/* Afternoon Schedule */}
+          {afternoonData.map((row) => renderRow(row))}
 
-          {/* Afternoon Extra Schedule (después del break) */}
-          {afternoonExtraData.map((row, index) => renderRow(row))}
+          {/* Coffee Break */}
+          {renderBreak(coffeeBreak)}
+
+          {/* Afternoon Extra Schedule */}
+          {afternoonExtraData.map((row) => renderRow(row))}
 
           {/* After Party */}
-          <div className="border-t border-gray-200">
-            <div className="lg:hidden">
-              <div className="p-4 bg-gray-50 border-b border-gray-200">
-                <span className="font-semibold text-sm text-foreground">{afterParty.time}</span>
-              </div>
-              <div className="p-6 bg-gray-200 text-center">
-                <span className="font-bold text-lg text-foreground">{afterParty.title}</span>
-              </div>
-            </div>
-            <div className="hidden lg:grid lg:grid-cols-4">
-              <div className="p-6 bg-gray-50 border-r border-gray-200 flex items-center">
-                <span className="font-semibold text-sm text-foreground whitespace-nowrap">{afterParty.time}</span>
-              </div>
-              <div className="col-span-3 p-6 bg-gray-200 flex items-center justify-center">
-                <span className="font-bold text-lg text-foreground">{afterParty.title}</span>
-              </div>
-            </div>
-          </div>
+          {renderBreak(afterParty)}
         </div>
       </div>
     </section>
